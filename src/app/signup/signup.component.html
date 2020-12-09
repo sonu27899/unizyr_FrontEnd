@@ -1,0 +1,110 @@
+<div class="example-container" style="text-align: center;border: black  2px;">
+  <form (ngSubmit)="submitForm()" #f1="ngForm">
+    <h1>SignUP</h1>
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" required id="user_name" name="user_name" [(ngModel)]="user_name" #username="ngModel">
+    </mat-form-field>
+    <div [hidden]="username.valid || username.untouched">
+      <div [hidden]="!username.errors?.required" class="alert alert-danger">
+        Please Enter User Name.
+      </div>
+    </div>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" required email id="user_email" name="user_email" [(ngModel)]="user_email"
+        #useremail="ngModel">
+    </mat-form-field>
+    <div [hidden]="useremail.valid || useremail.untouched">
+      <div [hidden]="useremail.errors?.required" class="alert alert-danger">
+        Please Enter Valid User_Email.
+      </div>
+      <div [hidden]="!useremail.errors?.required" class="alert alert-danger">
+        Please Enter User_Email.
+      </div>
+    </div>
+    <br>
+    <mat-form-field class="example-full-width">
+      <mat-label>Contact Number</mat-label>
+      <input matInput required minlength="10" maxlength="10" type="number" id="contact" name="contact"
+        [(ngModel)]="contact" #contact1="ngModel">
+    </mat-form-field>
+    <div [hidden]="contact1.valid || contact1.untouched">
+      <div [hidden]="!contact1.errors?.required" class="alert alert-danger">
+        Please Enter Mobile No.
+      </div>
+      <div [hidden]="!contact1.errors?.minlength" class="alert alert-danger">
+        Please Enter Valid No.
+      </div>
+    </div>
+
+    <br>
+    <div>
+      <h4>Address</h4>
+      <mat-form-field class="example-form-field">
+        <mat-label>Flat Number</mat-label>
+        <input matInput type="text" required id="flat" name="flat" [(ngModel)]="flat" #flatno="ngModel">
+      </mat-form-field>
+      <div [hidden]="flatno.valid || flatno.untouched">
+        <div [hidden]="!flatno.errors?.required" class="alert alert-danger">
+          Please Enter Flat/House Number.
+        </div>
+      </div>
+      <br>
+      <mat-form-field class="example-form-field">
+        <mat-label>Address Line1</mat-label>
+        <input matInput type="text" required id="address1" name="address1" [(ngModel)]="address1"
+          #addressline1="ngModel">
+      </mat-form-field>
+      <div [hidden]="addressline1.valid || addressline1.untouched">
+        <div [hidden]="!addressline1.errors?.required" class="alert alert-danger">
+          Please Enter AddressLine1.
+        </div>
+      </div>
+      <br>
+      <mat-form-field class="example-form-field">
+        <mat-label>Address Line2</mat-label>
+        <input matInput type="text" id="address2" name="address2" [(ngModel)]="address2" #addressline2="ngModel">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-form-field">
+        <mat-label>City</mat-label>
+        <input matInput type="text" required id="city" name="city" [(ngModel)]="city" #usercity="ngModel">
+      </mat-form-field>
+      <div [hidden]="usercity.valid || usercity.untouched">
+        <div [hidden]="!usercity.errors?.required" class="alert alert-danger">
+          Please Enter User City.
+        </div>
+      </div>
+      <br>
+      <mat-form-field class="example-form-field">
+        <mat-label>State</mat-label>
+        <input matInput type="text" required id="state" name="state" [(ngModel)]="state" #userstate="ngModel">
+      </mat-form-field>
+      <div [hidden]="userstate.valid || userstate.untouched">
+        <div [hidden]="!userstate.errors?.required" class="alert alert-danger">
+          Please Enter User City.
+        </div>
+      </div>
+      <br>
+      <mat-form-field class="example-form-field">
+        <mat-label>Pincode</mat-label>
+        <input matInput type="text" minlength="6" maxlength="6" required id="pincode" name="pincode"
+          [(ngModel)]="pincode" #pin="ngModel">
+      </mat-form-field>
+      <div [hidden]="pin.valid || pin.untouched">
+        <div [hidden]="!pin.errors?.required" class="alert alert-danger">
+          Please Enter User Pincode
+        </div>
+        <div [hidden]="!pin.errors?.minlength" class="alert alert-danger">
+          Please Enter Valid PinCode.
+        </div>
+      </div>
+      <br>
+      <button type="submit" [disabled]="!f1.valid" class="btn btn-default" aria-label="Left Align"
+        style="background-color: green; margin-bottom: 50px; width:250px;height:30px ; color: black;">Submit</button>
+
+    </div>
+  </form>
+</div>
